@@ -1,0 +1,36 @@
+.User{
+    list-style-type: none;
+    width: 240px;
+    background-color: #fff;
+    margin: 5px;
+    border:1px solid #ddd;
+}
+.img-wrap{
+    background-color: #f6f6f6;
+}
+img{
+    height: 140px;
+}
+.user-content{
+    padding: 5px;
+}
+
+.footer{
+    background-color: #f6f6f6;
+    padding: 12px;
+    display: flex;
+    justify-content: space-around;
+}
+.fa-heart, .fa-heart-o{
+    color: red;
+}
+.fa-trash, .fa-pencil{
+    color:#7c7979;
+}
+
+.btn{
+    border: 0;
+    cursor: pointer;
+    padding: 5px;
+    background-color: transparent;
+}
