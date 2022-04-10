@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import List from './User';
 import UsersData from './UsersData';
+import { USER_DATA, DElETE_USER } from '../Store/Actions';
 
 function Users() {
 
@@ -14,11 +15,11 @@ function Users() {
   const deleteHandler = (e, id) => {
     e.stopPropagation();
     const newUserData = usersData.filter(user => user.id != id);
-    dispatch({type:"DElETE_USER", users: newUserData})
+    dispatch({type:DElETE_USER, users: newUserData})
   }
 
   useEffect(() => {
-    dispatch({type:"USER_DATA", users: UsersData});
+    dispatch({type:USER_DATA, users: UsersData});
   }, [])
 
   const addToFavourite = (id) => { 

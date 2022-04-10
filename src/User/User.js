@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import user from '../images/user.png';
+import { USER_DETAIL } from '../Store/Actions';
 import './User.css';
 
 
@@ -20,13 +21,13 @@ function List(props) {
   }
 
   const navigateDetails = () => {
-    dispatch({type:"USER_DETAIL", data: props.user})
+    dispatch({type:USER_DETAIL, data: props.user})
     navigate(`/user-details/${props.user.id}`);
   }
 
   const editUser = (e) => {
     e.stopPropagation();
-    dispatch({type:"USER_DETAIL", data: props.user})
+    dispatch({type:USER_DETAIL, data: props.user})
     navigate(`/edit-user/${props.user.id}`);
   }
   
