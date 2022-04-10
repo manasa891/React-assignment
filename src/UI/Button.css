@@ -1,0 +1,13 @@
+.formGroup button{
+    padding: 10px;
+    max-width: 150px;
+    width: 100%;
+    border: 1px solid #4886c1;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #4886c1;
+    color: #fff;
+}
+.formGroup button:hover{
+    background-color: #0456a5;
+}

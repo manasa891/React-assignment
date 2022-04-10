@@ -1,16 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import List from './User';
 import UsersData from './UsersData';
 
 function Users() {
 
-  const [usersData, setUsersData] = useState(UsersData);
+  const dispatch = useDispatch();
+
+  const usersData = useSelector(state => state.userData);
+
   const [favouriteData, setfavouriteData] = useState([]);
 
-  const deleteHandler = (id) => {
+  const deleteHandler = (e, id) => {
+    e.stopPropagation();
     const newUserData = usersData.filter(user => user.id != id);
-    setUsersData(newUserData)
+    dispatch({type:"DElETE_USER", users: newUserData})
   }
+
+  useEffect(() => {
+    dispatch({type:"USER_DATA", users: UsersData});
+  }, [])
 
   const addToFavourite = (id) => { 
     const favouriteUser = usersData.find(user => user.id == id);
@@ -24,14 +33,14 @@ function Users() {
   }
 
   return (
-    <>
+    <div className="Card">
         {
-          usersData.map((user) => (
+          usersData && usersData.map((user) => (
             <List key={user.id} user={user} deleteHandler={deleteHandler}
               addToFavourite={addToFavourite} />
           ))
         }
-    </>
+    </div>
   );
 }
 
